@@ -6,6 +6,10 @@ class AdminsController < ApplicationController
     @users = User.all
   end
 
+  def show_all_users
+    @users = User.all
+  end
+
   def show_user
     @user = User.find_by(id: params[:id])
     if @user
