@@ -1,0 +1,123 @@
+<style>
+.custom-class{
+  width:200px;
+}
+.cloud-img{
+  /* height:250px;
+  max-width:300px; */
+}
+</style>
+<!-- about.html.erb -->
+
+<div class="container mt-2">
+  <!-- Introduction Section -->
+  <section class="text-center mb-4">
+    <h1>About Cloud Marketplace</h1>
+    <p class="lead">Connecting Businesses with the Best Cloud Solutions</p>
+  </section><hr>
+
+  <!-- Our Values Section -->
+  <section class="mb-5 mt-4">
+    <h2 class="">What We Stand For</h2>
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="card border-0 shadow-lg" style="max-width:300px;">
+        <div class="card-body">
+          <h4 class="card-title">Innovation</h4>
+          <p class="card-text">We are constantly pushing the boundaries to bring you the latest in cloud technology.</p>
+           <%= image_tag asset_path('cloud1.png'), class: 'card-img' %>
+        </div>
+      </div>
+      <div class="card border-0 shadow-lg" style="max-width:300px;">
+        <div class="card-body">
+          <h4 class="card-title">Customer Focus</h4>
+          <p class="card-text">Your success is our success. We are dedicated to providing exceptional service and support.</p>
+           <%= image_tag asset_path('cloud2.png'), class: 'card-img' %>
+        </div>
+      </div>
+      <div class="card border-0 shadow-lg" style="max-width:300px;">
+        <div class="card-body">
+          <h4 class="card-title">Transparency</h4>
+          <p class="card-text">We believe in clear communication and honest pricing, with no hidden fees.</p>
+           <%= image_tag asset_path('cloud3.png'), class: 'card-img' %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="mb-5">
+    <h2>Why Cloud Marketplace?</h2>
+    <p>
+      Choosing the right cloud solution is critical, and we make it easy for you. Here’s why businesses trust us:
+    </p>
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="card border-0" style="max-width:400px;">
+        <div class="card-body"> 
+          <%= image_tag asset_path('cloud7.jpeg'), class: 'card-img shadow-lg', style:"height:400px"%>
+        </div>
+      </div>
+      <div class="card border-0 shadow-lg" style="max-width:300px;">
+        <div class="card-body">
+          <h4 class="card-title">Expert Guidance</h4> 
+          <p class="card-text">Our team of experts is here to guide you every step of the way, from selection to implementation.</p>
+          <%= image_tag asset_path('cloud5.jpeg'), class: 'card-img cloud-img', style:"" %>
+        </div>
+      </div>
+      <div class="card border-0 shadow-lg" style="max-width:300px;">
+        <div class="card-body">
+          <h4 class="card-title ">Proven Success</h4>
+          <p class="card-text">See what our customers have to say: Proven Success See what our customers have to say</p>
+          <%= image_tag asset_path('cloud6.jpeg'), class: 'card-img cloud-img', style:""%>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Future Section -->
+  <section class="mb-5">
+    <h2>Looking Ahead</h2>
+    <p>
+      As we continue to grow, our commitment to innovation and customer success remains our top priority.
+      We’re excited about the future and look forward to bringing even more advanced cloud solutions to businesses worldwide.
+    </p>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="text-center mb-4">
+    <h2>Let’s Connect</h2>
+    <p>We’d love to hear from you! Whether you have questions, feedback, or just want to learn more, feel free to <%= link_to 'contact us', new_contect_path, class:"text-success" %> or follow us on social media.</p>
+  </section>
+</div>
+
+<!-- Footer --> 
+<div class="container text-center">
+  <a>&copy; <%= Time.now.year %> Cloud Marketplace. All rights reserved.</a><br>
+  <a class="text-success"><%= link_to 'Privacy Policy', about_path , class:"text-success"%> | <%= link_to 'Terms of Service', about_path, class:"text-success" %></a>
+</div>
+
+<div class="container">
+        <div class="d-flex mx-auto text-center my-3 shadow rounded py-3">
+            <div class="col">
+                <i class="bi bi-geo-alt-fill h-color h2"></i>
+                <br />
+                <span class="h6 mt-3">Headquaters</span>
+                <br />
+                <span class="text-muted">Indore</span>
+            </div>
+            <div class="col">
+                <i class="bi bi-envelope-fill e-color h2"></i>
+                <br />
+                <span class='h6 mt-3'>E-Mail</span>
+                <br />
+                <span class="text-muted">abcd@gmail.com</span>
+            </div>
+            <div class="col">
+                <i class="bi bi-telephone-fill c-color h2"></i>
+                <br />
+                <span class="h6 mt-3">Phone</span>
+                <br />
+                <span class="text-muted">+91-987654321</span>
+            </div>
+        </div>
+</div>
+

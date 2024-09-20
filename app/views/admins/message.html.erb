@@ -1,0 +1,44 @@
+<style>
+.user-link{
+  display: block;
+  font-size:23px;
+  text-decoration:none;
+}
+.table {
+    border-collapse: separate;
+    border-spacing:0 16px;
+}
+</style>
+
+<div class="container">
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+      <td>
+        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" style="width:80px; float:left; margin-right:10px;">
+		    <a class="text-light user-link"><%= @user.name %></a>
+		    <span class=""><%= @user.username%></span>
+      </td>
+      <td>DateTime</td>
+      <td>Open in Email</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @messages.each do |message| %>
+    <tr>
+      <td>
+        <p><%= message.message %></p>
+      </td>
+      <td>
+        <p><%= message.created_at.strftime("%B %d, %Y") %></p>
+      </td>
+      <td>
+        <%= button_to ' Open In Email', user_session_path(@user), method: :delete, data: { turbo_method: :delete, confirm: 'Are you sure?' } , class:"btn btn-outline-secondary bi bi-envelope-paper"%>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+  
+

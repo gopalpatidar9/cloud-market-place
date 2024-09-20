@@ -1,0 +1,113 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<style>
+body{margin-top:20px;}
+
+
+/* USER LIST TABLE */
+.user-list tbody td > img {
+    position: relative;
+	max-width: 50px;
+	float: left;
+	margin-right: 15px;
+}
+.user-list tbody td .user-link {
+	display: block;
+	font-size: 1.25em;
+	padding-top: 3px;
+	margin-left: 60px;
+  text-decoration:none;
+}
+.user-list tbody td .user-subhead {
+	font-size: 0.875em;
+	font-style: italic;
+}
+
+/* TABLES */
+.table {
+    border-collapse: separate;
+	border-spacing:0 16px;
+}
+
+</style>
+
+<style>
+
+/* USER LIST TABLE
+.user-list tbody td > img {
+    position: relative;
+	max-width: 50px;
+	float: left;
+	margin-right: 15px;
+}
+.user-list tbody td .user-link {
+	display: block;
+	font-size: 1.25em;
+	padding-top: 3px;
+	margin-left: 60px;
+  text-decoration:none;
+}
+.table tbody > tr > td {
+	font-size: 0.875em;
+	vertical-align: middle;
+} */
+.table {
+    border-collapse: separate;
+    border-spacing:0 16px;
+}
+.table tbody tr:hover {
+    background-color:#EEEDEB; /* Light blue background on hover */
+    cursor: pointer; /* Change the cursor to pointer */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+</style>
+
+
+<div class="container">
+<table class="table user-list">
+  <thead class="text-light bg-dark">
+    <tr class="text-light" style="font-family: sans-serif;">
+      <th scope="col" class="ml-3">User</th>
+      <th scope="col">Created</th>
+      <th scope="col">Status</th>
+      <th scope="col">Email</th>
+	  <th scope="col">Remove</th>
+    </tr>
+  </thead>
+  <tbody class="">
+  <% @users.each do |user| %> 
+    <tr data-href="<%= show_user_admin_path(user.id) %>" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+	  <td>
+		<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" style="width:50px;">
+		<a class="user-link"><%= user.name %></a>
+		<span class=""><%= user.username%></span>
+	  </td>
+      <td>
+	    <span class="label label-default"><%= user.created_at.strftime("%B %d, %Y")%></span>
+      </td>
+      <td>								
+	    <span class="text-success">Active</span>
+      </td>
+      <td>
+		<a class=""><%= user.email%></a>
+	  </td>
+	  <td class="" style="">
+		<%= button_to ' Remove', user_session_path(user), method: :delete, data: { turbo_method: :delete, confirm: 'Are you sure?' } , class:"btn btn-outline-danger bi bi-trash3"%>
+	  </td>
+    </tr>
+  <% end %>	
+  </tbody>
+</table>
+</div>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+  const rows = document.querySelectorAll("tr[data-href]");
+  rows.forEach(row => {
+    row.addEventListener("click", function() {
+      window.location.href = this.dataset.href;
+    });
+  });
+});
+
+</script>

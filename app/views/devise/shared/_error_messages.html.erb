@@ -1,0 +1,16 @@
+<style>
+.alirt-links{
+  text-decoration: none;
+}
+</style>
+<% if resource.errors.any? %>
+  <div id="error_explanation" data-turbo-cache="false">
+    <ul>
+      <% resource.errors.full_messages.each do |message| %>
+      <div style="width:25rem; margin:0 auto;">
+        <a class="text-danger text-center alirt-links"><%= message %></a>
+      </div>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

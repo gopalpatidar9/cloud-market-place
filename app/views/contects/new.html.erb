@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key == 'notice' ? 'success' : 'danger' %> alert-dismissible fade show" role="alert">
+      <%= value %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% end %>
+</div>
+<%= form_with model: @contect, method: :post do |f| %>
+<div class="d-flex justify-content-center align-items-center">
+    <div class="col-6">
+        <div class="text-center h3 contact-h ">CONTACT US</div>
+        <div class="shadow rounded p-4 border-top1 mt-4">
+            <div class="row g-3 mb-3">
+                <div class="col">
+                  <%= f.label :first_name, class:"form-label" %><span class="text-danger">*</span>
+                  <%= f.text_field :first_name, class: 'form-control' %>   
+                </div>
+                <div class="col">
+                  <%= f.label :last_name , class:"form-label"%><span class="text-danger">*</span>
+                  <%= f.text_field :last_name, class: 'form-control' %> 
+                </div>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address<span class="text-danger">*</span></label>
+              <%= f.email_field :email, class: 'form-control' %>
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Type your query here<span class="text-danger">*</span></label>
+              <%= f.text_area :message, class: 'form-control' , placholder:"Type your query here" %>
+              </div>
+            <div class="mb-3 text-center d-grid gap-2">
+              <%= f.submit "send message" , class:"btn btn-dark text-white"%>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>

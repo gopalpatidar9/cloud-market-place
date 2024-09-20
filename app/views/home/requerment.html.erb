@@ -1,0 +1,98 @@
+<style>
+.q-requerments{
+  text-decoration: none;  
+}
+</style>
+
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-3">
+            <div class="shadow-lg">
+                <div class="d-flex align-items-center py-2 px-2 ">
+                    <div class="col-sm-3">
+                        <%= image_tag 'aws.svg' , alt: 'Google Cloud Provider' , class: 'custom-class' %>
+                    </div>
+                    <div class="col-sm-9"><a class="csp-name text-secondary" href="/csp/services/aws"> Amazon Web
+                            Service</a></div>
+                </div>
+                <div class="d-flex align-items-center py-2 px-2 border">
+                    <div class="col-sm-3">
+                        <%= image_tag 'gcp.svg' , alt: 'Google Cloud Provider' , class: 'custom-class' %>
+                    </div>
+                    <div class="col-sm-9"><a class="csp-name text-secondary" href="/csp/services/aws"> Google Cloud
+                            Provider</a></div>
+                </div>
+                <div class="d-flex align-items-center py-2 px-2 border">
+                    <div class="col-sm-3">
+                        <%= image_tag 'azure.svg' , alt: 'Microsoft Azure' , class: 'custom-class' %>
+                    </div>
+                    <div class="col-sm-9"><a class="csp-name text-secondary" href="/csp/services/aws"> Microsoft
+                            Azure</a></div>
+                </div>
+                <div class="d-flex align-items-center py-2 px-2 border">
+                    <div class="col-sm-3">
+                        <%= image_tag 'ibm.svg' , alt: 'IBM Cloud' , class: 'custom-class' %>
+                    </div>
+                    <div class="col-sm-9"><a class="csp-name text-secondary" href="/csp/services/aws"> IBM Cloud</a>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center py-2 px-2 border">
+                    <div class="col-sm-3">
+                        <%= image_tag 'heroku.svg' , alt: 'Heroku Cloud' , class: 'custom-class' %>
+                    </div>
+                    <div class="col-sm-9"><a class="csp-name text-secondary" href="/csp/services/aws"> Heroku Cloud</a>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center py-2 px-2 border">
+                    <div class="col-sm-3">
+                        <%= image_tag 'salesforce.svg' , alt: 'Google Cloud Provider"' , class: 'custom-class' %>
+                    </div>
+                    <div class="col-sm-9"><a class="csp-name text-secondary" href="/csp/services/aws"> Salesforce
+                            Cloud</a></div>
+                </div>
+                <div class="d-flex align-items-center py-2 px-2 border">
+                    <div class="col-sm-3">
+                        <%= image_tag 'digital-ocean.svg' , alt: 'Digital Ocean' %>
+                    </div>
+                    <div class="col-sm-9"><a class="csp-name text-secondary" href="/csp/services/aws"> Digital Ocean</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="row justify-content-between gx-1 ">
+                <div class="col-sm-6 border d-flex bg-active" id="custom-req">
+                    <div class="mx-3 mt-2"><input type="radio" name="req-op" class="radio-inp"></div>
+                    <div class="mt-1">
+                        <div class="fw-bold">Custom Requirement</div>
+                        <p class="">In the custom requirement you have more option to select your csp.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 border d-flex" id="predefine-req">
+                    <div class="mx-3 mt-2"><input type="radio" name="req-op" class="radio-inp"></div>
+                    <div class="mt-1">
+                        <div class="fw-bold">Select Predefine Requirements</div>
+                        <p class="">we have created some predefine template so you can use it to solve your business
+                            problem.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <div class="d-flex flex-column">
+                    <div class="border w-100 p-2 mb-3 " id="0"><a class="custom-req text-dark q-requerments">I
+                            want to host a website.</a></div>
+                    <div class="border w-100 p-2 mb-3 " id="1"><a class="custom-req text-dark q-requerments">I
+                            want a remote SQL database.</a></div>
+                    <div class="border w-100 p-2 mb-3 " id="2"><a class="custom-req text-dark q-requerments">I
+                            want a dedicated hardware.</a></div>
+                    <div class="border w-100 p-2 mb-3 " id="3"><a class="custom-req text-dark q-requerments">I
+                            want a remote NoSQL database.</a></div>
+                    <div class="border w-100 p-2 mb-3 " id="4"><a class="custom-req text-dark q-requerments">I
+                            want to host a website but don't want to manage server configuration.</a></div>
+                    <div class="border w-100 p-2 mb-3 mt-3 text-center bg-light" style="color: rgb(240, 160, 75);">Other
+                        Requirement</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

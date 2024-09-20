@@ -1,0 +1,24 @@
+<h1>Cloud Services Comparison</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Cloud Service</th>
+      <th>Price (USD)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AWS</td>
+      <td><%= @comparison_results[:aws] %></td>
+    </tr>
+    <tr>
+      <td>Azure</td>
+      <td><%= @comparison_results[:azure] %></td>
+    </tr>
+    <tr>
+      <td>GCP</td>
+      <td><%= @comparison_results[:gcp] %></td>
+    </tr>
+  </tbody>
+</table>
