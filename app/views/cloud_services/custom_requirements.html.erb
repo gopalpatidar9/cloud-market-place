@@ -1,0 +1,381 @@
+<style>
+.q-requirements {
+  text-decoration: none;
+}
+</style>
+
+<div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="resultModalLabel">Finded Platform Service Result</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="result">
+        <!-- Result will be populated here -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row mt-4">
+    <!-- Left Sidebar with CSPs -->
+    <div class="col-3">
+      <div class="shadow-lg">
+        <!-- AWS -->
+        <div class="d-flex align-items-center py-2 px-2">
+          <div class="col-sm-3">
+            <%= image_tag 'aws.svg' , alt: 'Amazon Web Services' , class: 'custom-class' %>
+          </div>
+          <div class="col-sm-9">
+            <a class="csp-name text-secondary" href="https://aws.amazon.com/s3/">Amazon Web Service</a>
+          </div>
+        </div>
+        
+        <!-- Google Cloud -->
+        <div class="d-flex align-items-center py-2 px-2 border">
+          <div class="col-sm-3">
+            <%= image_tag 'gcp.svg' , alt: 'Google Cloud Provider' , class: 'custom-class' %>
+          </div>
+          <div class="col-sm-9">
+            <a class="csp-name text-secondary" href="https://cloud.google.com/free/?utm_source=google&utm_medium=cpc&utm_campaign=japac-IN-all-en-dr-BKWS-all-core-trial-EXA-dr-1605216&utm_content=text-ad-none-none-DEV_c-CRE_644159077391-ADGP_Hybrid+%7C+BKWS+-+EXA+%7C+Txt+-GCP-General-core+brand-main-KWID_43700074766895886-kwd-6458750523&userloc_1007792-network_g&utm_term=KW_google%20cloud&gad_source=1&gclid=Cj0KCQiAire5BhCNARIsAM53K1indQjAwTGVmKWwz09S9kfQ42d7KaSdBMvHKgb3sflg3L1IWMDODVYaAmOjEALw_wcB&gclsrc=aw.ds">Google Cloud Provider</a>
+          </div>
+        </div>
+        
+        <!-- Azure -->
+        <div class="d-flex align-items-center py-2 px-2 border">
+          <div class="col-sm-3">
+            <%= image_tag 'azure.svg' , alt: 'Microsoft Azure' , class: 'custom-class' %>
+          </div>
+          <div class="col-sm-9">
+            <a class="csp-name text-secondary" href="https://azure.microsoft.com/en-gb/">Microsoft Azure</a>
+          </div>
+        </div>
+        
+        <!-- IBM Cloud -->
+        <div class="d-flex align-items-center py-2 px-2 border">
+          <div class="col-sm-3">
+            <%= image_tag 'ibm.svg' , alt: 'IBM Cloud' , class: 'custom-class' %>
+          </div>
+          <div class="col-sm-9">
+            <a class="csp-name text-secondary" href="https://www.ibm.com/cloud">IBM Cloud</a>
+          </div>
+        </div>
+        
+        <!-- Heroku -->
+        <div class="d-flex align-items-center py-2 px-2 border">
+          <div class="col-sm-3">
+            <%= image_tag 'heroku.svg' , alt: 'Heroku Cloud' , class: 'custom-class' %>
+          </div>
+          <div class="col-sm-9">
+            <a class="csp-name text-secondary" href="https://www.heroku.com/">Heroku Cloud</a>
+          </div>
+        </div>
+        
+        <!-- Salesforce -->
+        <div class="d-flex align-items-center py-2 px-2 border">
+          <div class="col-sm-3">
+            <%= image_tag 'salesforce.svg' , alt: 'Salesforce Cloud' , class: 'custom-class' %>
+          </div>
+          <div class="col-sm-9">
+            <a class="csp-name text-secondary" href="https://www.salesforce.com/">Salesforce Cloud</a>
+          </div>
+        </div>
+        
+        <!-- Digital Ocean -->
+        <div class="d-flex align-items-center py-2 px-2 border">
+          <div class="col-sm-3">
+            <%= image_tag 'digital-ocean.svg' , alt: 'Digital Ocean' %>
+          </div>
+          <div class="col-sm-9">
+            <a class="csp-name text-secondary" href="">Digital Ocean</a>
+          </div>
+        </div>
+     </div>
+    </div>
+
+    <!-- Right Content: Requirement Selection -->
+    <div class="col-9">
+      <!-- Custom and Predefined Requirement Options -->
+      <div class="row justify-content-between gx-1">
+        <!-- Custom Requirement Option -->
+        <div class="col-sm-6 border d-flex bg-active" id="custom-req">
+          <div class="mx-3 mt-2"><input type="radio" name="req-op" class="radio-inp"></div>
+          <div class="mt-1">
+            <div class="fw-bold">Custom Requirement</div>
+            <p class="">In the custom requirement, you have more options to select your CSP.</p>
+          </div>
+        </div>
+
+        <!-- Predefined Requirement Option -->
+        <div class="col-sm-6 border d-flex" id="predefine-req">
+          <div class="mx-3 mt-2"><input type="radio" name="req-op" class="radio-inp"></div>
+          <div class="mt-1">
+            <div class="fw-bold">Select Predefined Requirements</div>
+            <p class="">We have created some predefined templates to solve your business problem.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Custom Requirements List -->
+      <div id="custom-requirements" style="display: none;" class="mt-4">
+        <div class="d-flex flex-column">
+          <div class="border w-100 p-2 mb-3" id="0">
+            <a class="custom-req text-dark q-requirements" data-value="host_website">I want to host a website.</a>
+          </div>
+          <div class="border w-100 p-2 mb-3" id="1">
+            <%= link_to "I want a remote SQL database.", cloud_services_compare_remote_sql_path,  id: "show_sql_form_button", class: "custom-req text-dark q-requirements" %>
+          </div>
+          <div id="sql_form_container" style="display:none;">
+          <div class="d-flex justify-content-between border">
+          <div style="margin-left:90px;">
+            <div class="d-flex justify-content-center"><i class="bi bi-database-fill" style="font-size:70px; color:#F0A04B;"></i></div>
+            <p class="d-flex justify-content-center"><span>Amazon RDS</span></p>
+          </div>
+          <div class="">
+            <div class="d-flex justify-content-center"><i class="bi bi-database-fill" style="font-size:70px; color:#F0A04B;"></i></div>
+            <p class="d-flex justify-content-center"><span>Azure SQL Database</span></p>
+          </div>
+          <div style="margin-right:90px;">
+            <div class="d-flex justify-content-center"><i class="bi bi-database-fill" style="font-size:70px; color:#F0A04B;"></i></div>
+            <p class="d-flex justify-content-center"><span>Cloud SQL</span></p>
+          </div>
+        </div> 
+        <%= form_with url: compare_remote_sql_path, method: :post, local: true do |form| %>
+          <div class="mt-4">
+            <%= form.number_field :storage, class:'form-control', required: true %>
+            <p>Required Storage <strong>(GB)</strong></p>
+          </div>
+          <div class="mt-3">
+            <select name="performance" class="form-control">
+              <option value="high">High</option>
+              <option value="standard">Standard</option>
+              <option value="basic">Basic</option>
+            </select>
+            <p>Select the level of Performance Tier <strong>(Performance)</strong></p>
+          </div>
+
+          <div class="mt-3">
+            <%= form.number_field :budget, step: 0.01, class:'form-control', required: true %>
+            <p>Budget <strong>(USD)</strong></p>
+          </div>
+
+          <div class="mb-4 mt-2">
+            <%= form.submit "Find service" , class:'btn btn-warning' %>
+          </div>
+        <% end %>
+      </div>
+      <div class="border w-100 p-2 mb-3" id="2">
+        <a class="custom-req text-dark q-requirements" data-value="dedicated_hardware">I want a dedicated hardware.</a>
+      </div>
+      <div class="border w-100 p-2 mb-3" id="3">
+        <a class="custom-req text-dark q-requirements" data-value="remote NoSQL">I want a remote NoSQL database.</a>
+      </div>
+      <div class="border w-100 p-2 mb-3" id="4">
+        <a class="custom-req text-dark q-requirements" data-value="manage server">I want to host a website but don't want to manage server configuration.</a>
+      </div>
+      <!-- More custom requirements as needed -->
+      <div class="border w-100 p-2 mb-3 mt-3 text-center bg-light" style="color: rgb(240, 160, 75);">Other Requirement</div>
+    </div>
+    </div>
+
+    <!-- Predefined Requirements Placeholder -->
+    <div id="predefined-requirements" style="display: none;" class="mt-4">
+      <div class="container">
+      <div class="row">
+        <% @services.each_with_index do |service, index| %>
+          <div class="col-md-6 mb-4"> <!-- Two columns per row -->
+            <div class="card" style="width: 100%;">
+              <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted"><%= service['title'] %></h6>
+                <a type="button" class="" style="color:#F0A04B;" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#serviceModal" 
+                        data-service-title="<%= service['title'] %>" 
+                        data-service-csp="<%= service['details']['csp_name'] %>" 
+                        data-service-name="<%= service['details']['service_name'] %>" 
+                        data-service-price="<%= service['details']['price'] %>">
+                  Find Service
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Close row after two cards and start a new row -->
+          <% if (index + 1) % 2 == 0 %>
+            </div><div class="row">
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    </div>
+
+    <div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="serviceModalLabel">Service Details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h6 id="modal-service-title"></h6><hr>
+            <p><strong>Cloud Service Provider:</strong> <span id="modal-service-csp"></span></p><hr>
+            <p><strong>Service Name:</strong> <span id="modal-service-name"></span></p><hr>
+            <p><strong>Price:</strong> <span id="modal-service-price"></span></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Template (hidden initially) -->
+    <div id="form-template" style="display: none;">
+      <div class="d-flex justify-content-between border mt-4">
+        <div style="margin-left:90px;">
+          <div class="d-flex justify-content-center"><i class="bi bi-database-check" style="font-size:70px; color:#F0A04B;"></i></div>
+          <p class="d-flex justify-content-center"><span>EC2</span></p>
+        </div>
+        <div class="">
+          <div class="d-flex justify-content-center"><i class="bi bi-database-check" style="font-size:70px; color:#F0A04B;"></i></div>
+          <p class="d-flex justify-content-center"><span>Virtual Machines</span></p>
+        </div>
+        <div style="margin-right:90px;">
+          <div class="d-flex justify-content-center"><i class="bi bi-database-check" style="font-size:70px; color:#F0A04B;"></i></div>
+          <p class="d-flex justify-content-center"><span>Compute Engine</span></p>
+        </div>
+      </div> 
+      <form id="comparison-form">
+        <div class="mt-4">
+          <input class="form-control" type="number" id="monthly_users" name="monthly_users" required>
+          <p for="monthly_users">How many users can visit / access your website <strong>(per month).</strong></p>
+        </div>
+        <div class="mt-4">
+          <input class="form-control" type="number" id="service_duration" name="service_duration" required>
+          <p for="service_duration">For how much time do you want to access this service <strong>(in months).</strong></p>
+        </div>
+        <div class="mt-4">
+          <select class="form-control" id="security_level" name="security_level" required>
+            <option value="">Select security level</option>
+            <option value="basic">Basic Security</option>
+            <option value="standard">Standard Security</option>
+            <option value="high">High Security</option>
+          </select>
+          <p for="security_level">Select the level of security for your server.</p>
+        </div>
+        <button class="btn btn-warning" type="button" id="compare-button">Finde Service</button>
+      </form>
+    </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Function to toggle between Custom and Predefined Requirements
+  function toggleRequirementsView(view) {
+    const customRequirements = document.getElementById("custom-requirements");
+    const predefinedRequirements = document.getElementById("predefined-requirements");
+
+    if (view === "custom") {
+      customRequirements.style.display = "block";
+      predefinedRequirements.style.display = "none";
+    } else if (view === "predefined") {
+      customRequirements.style.display = "none";
+      predefinedRequirements.style.display = "block";
+    }
+  }
+
+  // Set "Custom Requirement" as default view on page load
+  document.addEventListener("DOMContentLoaded", function() {
+    toggleRequirementsView("custom");
+  });
+
+  // Event listeners for Custom and Predefined Requirement selections
+  document.getElementById("custom-req").addEventListener("click", function() {
+    toggleRequirementsView("custom");
+  });
+
+  document.getElementById("predefine-req").addEventListener("click", function() {
+    toggleRequirementsView("predefined");
+  });
+
+  // Show form when a specific custom requirement is clicked
+  document.querySelectorAll(".q-requirements").forEach(item => {
+    item.addEventListener("click", function() {
+      const selectedValue = item.getAttribute("data-value");
+
+      // Remove any existing form instances
+      const existingForm = document.getElementById("dynamic-form-container");
+      if (existingForm) {
+        existingForm.remove();
+      }
+
+      // Insert form below the clicked custom requirement option
+      if (selectedValue === "host_website") {
+        const formTemplate = document.getElementById("form-template");
+        const formClone = formTemplate.cloneNode(true);
+        formClone.style.display = "block";
+        formClone.id = "dynamic-form-container";
+        item.parentElement.appendChild(formClone);
+
+        // Event listener for Compare button in cloned form
+        formClone.querySelector("#compare-button").addEventListener("click", function() {
+          const formData = new FormData(formClone.querySelector("#comparison-form"));
+          const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+          formData.append("authenticity_token", csrfToken);
+
+          // Send data to server and show response in modal
+          fetch("/cloud_services/compare", {
+            method: "POST",
+            body: formData
+          })
+          .then(response => response.text())
+          .then(data => {
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = data;
+            $("#resultModal").modal("show");
+          })
+          .catch(error => console.error("Error:", error));
+        });
+      }
+    });
+  });
+</script>
+
+<script>
+  // JavaScript to toggle form visibility
+  document.getElementById("show_sql_form_button").addEventListener("click", function(e) {
+    e.preventDefault();  // Prevent form submission on button click
+    document.getElementById("sql_form_container").style.display = "block";  // Show the form
+  });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+  var serviceModal = document.getElementById('serviceModal');
+  serviceModal.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget;
+
+    // Get data attributes from the clicked button
+    var title = button.getAttribute('data-service-title');
+    var csp = button.getAttribute('data-service-csp');
+    var name = button.getAttribute('data-service-name');
+    var price = button.getAttribute('data-service-price');
+    
+
+    // Populate the modal fields with data
+    document.getElementById('modal-service-title').textContent = title;
+    document.getElementById('modal-service-csp').textContent = csp;
+    document.getElementById('modal-service-name').textContent = name;
+    document.getElementById('modal-service-price').textContent = price;
+    
+  });
+});
+
+</script>

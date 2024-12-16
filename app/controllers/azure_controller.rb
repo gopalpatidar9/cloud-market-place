@@ -9,5 +9,5 @@ class AzureController < ApplicationController
         render json: { error: 'Unable to fetch Azure pricing data' }, status: :bad_request
       end
     end
-  end
+end
   

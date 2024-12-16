@@ -1,5 +1,6 @@
 class ContectsController < ApplicationController
   before_action :authenticate_user!
+  
   def new
     @contect = Contect.new
   end

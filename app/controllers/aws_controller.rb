@@ -10,5 +10,5 @@ class AwsController < ApplicationController
           render json: { error: 'Unable to fetch AWS pricing data' }, status: :bad_request
         end
     end
-  end
+end
   

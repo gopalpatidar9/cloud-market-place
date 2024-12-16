@@ -1,0 +1,95 @@
+<style>
+
+.card {
+    border: none;
+    border-radius: 10px
+}
+
+.c-details span {
+    font-weight: 300;
+    font-size: 13px
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    background-color: #eee;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 39px
+}
+
+.badge span {
+    background-color: #fffbec;
+    width: 60px;
+    height: 25px;
+    padding-bottom: 3px;
+    border-radius: 5px;
+    display: flex;
+    color: #fed85d;
+    justify-content: center;
+    align-items: center
+}
+
+.progress {
+    height: 10px;
+    border-radius: 10px
+}
+
+.progress div {
+    background-color: red
+}
+
+.text1 {
+    font-size: 14px;
+    font-weight: 600
+}
+
+.text2 {
+    color: #a5aec0
+}
+</style>
+
+<div class="card p-3 mb-2" style="">
+  <div class="d-flex justify-content-between">
+    <div class="d-flex flex-row align-items-center">
+      <div class="icon">
+       <% if best_service[:platform] == "Google Cloud Platform"%>
+        <%= image_tag 'gcp.svg' , alt: 'Google Cloud Provider' , class: 'custom-class' %>
+       <% elsif best_service[:platform] == "AWS" %> 
+        <%= image_tag 'aws.svg' , alt: 'Amazon Web Services' , class: 'custom-class' %>
+       <% elsif best_service[:platform] == "Azure" %> 
+        <%= image_tag 'azure.svg' , alt: 'Microsoft Azure' , class: 'custom-class' %>
+       <% elsif best_service[:platform] == "IBM Cloud" %>
+        <%= image_tag 'ibm.svg' , alt: 'IBM Cloud' , class: 'custom-class' %> 
+       <% elsif best_service[:platform] == "DigitalOcean" %>
+        <%= image_tag 'digital-ocean.svg' , alt: 'Digital Ocean' %>
+       <% elsif best_service[:platform] == "Heroku" %>
+        <%= image_tag 'heroku.svg' , alt: 'Heroku Cloud' , class: 'custom-class' %>
+       <% elsif best_service[:platform] == "Alibaba Cloud" %>
+        <%= image_tag 'alibaba-cloud.svg' , alt: 'Alibaba Cloud' %>
+       <% else %> 
+        <a class="nav-link fs-1 ms-4 fab fa-salesforce" style="color:#119cd9;" href="#"></a>
+       <% end %> 
+      </div>
+        <div class="ms-2 c-details">
+         <h6 class="mb-0"><%= best_service[:platform] %></h6> <span><%= best_service[:service_name] %></span>
+        </div>
+      </div>
+      <div class="badge"> <span>Design</span> </div>
+    </div>
+    <div class="mt-4">
+      <% if best_service && best_service[:service_name] != 'error' %>
+      <p><strong>Platform:</strong> <%= best_service[:platform] %></p><hr>
+      <p><strong>Service Name:</strong> <%= best_service[:service_name] %></p><hr>
+      <p><strong>Price:</strong> $<%= best_service[:price] %> per month</p><hr>
+      <p><strong>Security Level:</strong> <%= best_service[:security] %></p><hr>
+      <p><strong>Description:</strong> <%= best_service[:description] %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

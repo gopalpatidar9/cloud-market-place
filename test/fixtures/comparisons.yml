@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  predefined_requirement: one
+  cloud_platform: one
+  score: 1
+  description: MyText
+
+two:
+  predefined_requirement: two
+  cloud_platform: two
+  score: 1
+  description: MyText
