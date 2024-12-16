@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2024_11_15_121858) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cloud_platforms", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -32,8 +35,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_15_121858) do
   end
 
   create_table "comparisons", force: :cascade do |t|
-    t.integer "predefined_requirement_id", null: false
-    t.integer "cloud_platform_id", null: false
+    t.bigint "predefined_requirement_id", null: false
+    t.bigint "cloud_platform_id", null: false
     t.integer "score"
     t.text "description"
     t.datetime "created_at", null: false
@@ -47,14 +50,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_15_121858) do
     t.string "last_name"
     t.string "email"
     t.string "message"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_contects_on_user_id"
   end
 
   create_table "features", force: :cascade do |t|
-    t.integer "service_id", null: false
+    t.bigint "service_id", null: false
     t.string "feature_name"
     t.string "feature_value"
     t.datetime "created_at", null: false
@@ -77,7 +80,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_15_121858) do
   end
 
   create_table "services", force: :cascade do |t|
-    t.integer "provider_id", null: false
+    t.bigint "provider_id", null: false
     t.string "service_type"
     t.string "service_name"
     t.decimal "price_per_month"
