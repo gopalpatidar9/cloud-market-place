@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  provider: one
+  service_type: MyString
+  service_name: MyString
+  price_per_month: 9.99
+  security_level: MyString
+  description: MyText
+
+two:
+  provider: two
+  service_type: MyString
+  service_name: MyString
+  price_per_month: 9.99
+  security_level: MyString
+  description: MyText

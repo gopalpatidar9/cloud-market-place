@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'cloud_services/custom_requirements'
+  get 'cloud_services/compare'
   root 'home#index'
   get 'requerment', to: 'home#requerment'
   get 'about', to: 'home#about'
@@ -19,7 +21,16 @@ Rails.application.routes.draw do
   get 'compare_cloud_services', to: 'cloud_comparison#compare'
   resources :contects
   devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  resources :cloud_services do
+    collection do
+      post :compare
+    end
+  end
+  get 'cloud_services/compare_remote_sql', to: 'cloud_services#compare_remote_sql', as: :compare_remote_sql
+  post 'cloud_services/compare_remote_sql', to: 'cloud_services#compare_remote_sql'
+  get 'cloud_services/predefined_services', to: 'cloud_services#predefined_services'
+# Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   
   # Defines the root path route ("/")
   # root "articles#index"

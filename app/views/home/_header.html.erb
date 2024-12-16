@@ -16,10 +16,10 @@
 
           <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
             <li>
-              <a href="#" class="nav-link text-secondary">
-                <i class="bi bi-house-door custom-icon"></i>
-                Home
-              </a>
+              <%= link_to cloud_services_custom_requirements_path , class: "nav-link text-success d-flex align-items-center" do %>
+                <i class="bi bi-clipboard-minus custom-icon"></i>
+                <span class="ms-1">Home</span>
+              <% end %>
             </li>
             <li class="d-flex">
             <%= link_to about_path, class: "nav-link text-success d-flex align-items-center" do %>
@@ -67,7 +67,7 @@
             <% end %>  
             </li>
             <li class="d-flex">
-            <%= link_to services_path, class: "nav-link text-success d-flex align-items-center" do %>
+            <%= link_to cloud_services_path, class: "nav-link text-success d-flex align-items-center" do %>
                 <i class="bi bi-gear custom-icon"></i>
                 <span class="ms-1">Service</span>  
             </li>

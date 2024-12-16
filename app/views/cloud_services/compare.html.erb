@@ -1,0 +1,12 @@
+<!-- app/views/cloud_services/compare.html.erb -->
+<% if @best_service %>
+  <div class="result">
+    <h5><strong>Best Service:</strong> <%= @best_service[:name] %></h5>
+    <p><strong>Price:</strong> $<%= @best_service[:price] %></p>
+    <p><strong>Security Level:</strong> <%= @best_service[:security] %></p>
+    <p><strong>Description:</strong> <%= @best_service[:description] %></p>
+  </div>
+<% else %>
+  <p><%= @error %></p>
+<% end %>
+

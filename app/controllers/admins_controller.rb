@@ -44,7 +44,7 @@ class AdminsController < ApplicationController
   private
 
   def user_parmas
-    68
+    
   end
 
 end

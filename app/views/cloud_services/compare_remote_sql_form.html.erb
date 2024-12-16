@@ -1,0 +1,23 @@
+<!-- app/views/cloud_services/compare_remote_sql_form.html.erb -->
+<h1>Compare Remote SQL Databases</h1>
+
+<%= form_with url: compare_remote_sql_path, method: :post, local: true do |form| %>
+  <div>
+    <%= form.label :storage, "Required Storage (GB)" %>
+    <%= form.number_field :storage, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :performance, "Performance Tier" %>
+    <%= form.select :performance, options_for_select(["high", "standard", "basic"]), required: true %>
+  </div>
+
+  <div>
+    <%= form.label :budget, "Budget (USD)" %>
+    <%= form.number_field :budget, step: 0.01, required: true %>
+  </div>
+
+  <div>
+    <%= form.submit "Compare" %>
+  </div>
+<% end %>
