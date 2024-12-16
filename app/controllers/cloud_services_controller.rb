@@ -44,6 +44,7 @@ class CloudServicesController < ApplicationController
     @services = PREDEFINED_SERVICES
   end
 
+  
   def index
     @services = {
       compute: [
