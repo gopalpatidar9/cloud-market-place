@@ -8,5 +8,7 @@ window.Stimulus = application
 // Import Turbo and Stimulus controllers
 import "@hotwired/turbo-rails"
 import "controllers"
+import "../modifiers/index";
+
 
 // Bootstrap should not be imported here if it's included via CDN
